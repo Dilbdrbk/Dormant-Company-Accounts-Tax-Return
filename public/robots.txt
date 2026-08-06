@@ -1,0 +1,6 @@
+# Staging deployment. The production home of these pages is www.microfiler.co.uk,
+# which every page declares via rel=canonical.
+# DELETE THIS FILE (and the noindex header in vercel.json) before pointing a
+# production domain at this Vercel project.
+User-agent: *
+Disallow: /
