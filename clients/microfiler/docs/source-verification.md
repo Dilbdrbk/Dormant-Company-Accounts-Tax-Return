@@ -13,6 +13,38 @@ Source capture date: **6 August 2026**.
 
 ---
 
+## 0. Editorial policy applied on 6 August 2026 (operator instruction)
+
+Three changes were made to how sourced facts are *presented*. None of them changes what is sourced,
+and every claim below still traces to the same source.
+
+**0.1 On-page attribution removed.** Earlier drafts wrote "GOV.UK states that ..." and "Micro Filer's
+FAQs state that ..." inline. The pages now assert the fact directly and clarify it within its own
+section. GOV.UK is no longer named anywhere in either page, including the schema. **This table is now
+the only record of where each fact came from, so it carries more weight than before, not less.** Two
+supports remain on-page: the footer links to legislation.gov.uk and the relevant guidance pages, and
+statutory references are still cited by section number in the body copy (section 1169, section 480,
+section 384, section 384B, section 386, section 453, section 476, section 481).
+
+**0.2 One service price per page.** Each page now shows only its own fee. Page A shows £285 and no
+other Micro Filer price. Page B shows £445 and no other Micro Filer price. The £695 tier and the
+opposite page's fee were removed from body copy, fee cards, FAQs, footer service lists, and the
+`Offer` nodes in the schema. Where the old copy compared tiers, it now points to a quote instead.
+Section 3 below still verifies all three published fees, because the source publishes all three and a
+reviewer may need to reinstate one. Statutory figures (penalty bands, size thresholds, Corporation
+Tax rates) are unaffected by this rule.
+
+**0.3 Voice.** Copy now mixes first person plural ("we file", "our fixed fee") with the third-party
+form ("Micro Filer Ltd is a chartered accountants firm registered with the ICAEW"). The third-party
+form is retained wherever the sentence states a registration, a legal identity, or a credential, so
+those claims still read as statements of record.
+
+**0.4 FAQ schema regenerated.** The `FAQPage` answers are now extracted programmatically from the
+visible accordion text, so the structured data and the rendered page cannot drift apart. Nine
+question and answer pairs per page. Verified byte-identical at build time.
+
+---
+
 ## 1. Source index
 
 | ID | Source | URL | Type |
