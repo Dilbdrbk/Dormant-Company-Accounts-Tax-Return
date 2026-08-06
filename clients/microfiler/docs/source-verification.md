@@ -2,8 +2,8 @@
 
 Covers both deliverables:
 
-- `file-dormant-company-accounts-tax-return.html` (Page A)
-- `file-micro-company-accounts-tax-return.html` (Page B)
+- `public/dormant-company-accounts-tax-return.html` (Page A) -> route `/dormant-company-accounts-tax-return`
+- `public/micro-company-accounts-tax-return.html` (Page B) -> route `/micro-company-accounts-tax-return`
 
 **Rule applied:** every fact, figure, price, threshold, deadline, penalty, credential and statutory
 reference on either page traces to a source below. Nothing on either page is estimated, inferred or

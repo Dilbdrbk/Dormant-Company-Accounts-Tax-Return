@@ -3,8 +3,8 @@
 Run per `methodology/DIAGNOSTIC-REASONING-ENGINE.md`, Stages 1 to 5.
 Two pages produced, one primary macro context each.
 
-- Page A: `file-dormant-company-accounts-tax-return.html`
-- Page B: `file-micro-company-accounts-tax-return.html`
+- Page A: `public/dormant-company-accounts-tax-return.html` -> route `/dormant-company-accounts-tax-return`
+- Page B: `public/micro-company-accounts-tax-return.html` -> route `/micro-company-accounts-tax-return`
 
 Client: Micro Filer Ltd (microfiler.co.uk). Date of source capture: 6 August 2026.
 
@@ -123,8 +123,13 @@ ongoing support on VAT, PAYE and Income Tax. Micro Filer's published position is
 
 ## STAGE 5 — Structural assembly
 
-**H1 Page A:** File Dormant Company Accounts and a Company Tax Return for £285
-**H1 Page B:** File Micro Company Accounts and a Company Tax Return for £445
+**H1 Page A:** Dormant company accounts and company tax return
+**H1 Page B:** Micro company accounts and company tax return
+
+Both H1s were changed at the operator's instruction on 6 August 2026, from the earlier
+intent-verb-plus-price form. The H1 now carries the bare entity plus attribute pair. The intent verb
+"file" no longer appears in the H1; it still carries through the body at 2.08% and 1.84% density.
+The `<title>` tags retain the intent verb and the price for search-result click-through.
 
 **Tab systems.** Page A tabs divide by the two dormancy tests plus the two entry routes (never
 traded, stopped trading). Page B tabs divide by qualification criterion and by filing destination.
