@@ -145,10 +145,28 @@ footer.site li{margin-bottom:9px}
 .legal{border-top:1px solid #2d5060;margin-top:34px;padding-top:22px;font-size:.82rem;color:#84a7b1}
 .crosslink{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;margin-top:30px}
 .crosslink p{margin-bottom:0;font-size:.96rem}
+/* centred section intro, removes the ragged void beside short copy */
+.sec-center{text-align:center}
+.sec-center .lede{margin-left:auto;margin-right:auto}
+.ctaband .wrap{text-align:center}
+.ctaband p{margin-left:auto;margin-right:auto}
+.ctaband .row{justify-content:center}
+
+/* pill tabs */
+.tablist.pills{border-bottom:0;justify-content:center;gap:10px;margin-top:28px}
+.tablist.pills button{border:1px solid var(--brand-soft);border-radius:999px;padding:10px 18px;background:#fff;color:var(--brand-dark);font-weight:600;font-size:.88rem;margin-bottom:0}
+.tablist.pills button:hover{border-color:var(--brand);background:var(--brand-tint)}
+.tablist.pills button[aria-selected="true"]{background:var(--brand);border-color:var(--brand);color:#08333a;font-weight:700}
+
+/* image placeholder beside panel copy */
+.mediasplit{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center;text-align:left}
+.imgph{background:var(--bg-soft);border:1px dashed var(--brand-soft);border-radius:var(--r);min-height:270px;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;color:var(--muted);font-family:var(--h);font-weight:600;font-size:.85rem;line-height:1.55}
+
 @media(max-width:900px){
-  .hero-grid,.tabpanel .split{grid-template-columns:1fr;gap:32px}
+  .hero-grid,.tabpanel .split,.mediasplit{grid-template-columns:1fr;gap:32px}
   nav.main{display:none}
   section{padding:48px 0}
+  .imgph{min-height:200px}
 }
 </style>
 </head>
@@ -252,41 +270,116 @@ footer.site li{margin-bottom:9px}
 <!-- ============ WHAT IS INCLUDED ============ -->
 <section id="whats-included" class="alt">
   <div class="wrap">
-    <h2>What Is Included in Our Micro Company Accounts Service?</h2>
-
-    <p class="lede">One fixed fee of £445 covers both filings, the Corporation Tax computation behind
-    them, and a named chartered accountant for the whole period. Each item below states what you
-    receive and what it covers.</p>
-
-    <div class="tblwrap">
-      <table>
-        <caption>What the £445 micro company filing service includes</caption>
-        <thead>
-          <tr><th scope="col">Included</th><th scope="col">What it covers</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Companies House filing</td><td>Micro-entity balance sheet under FRS 105, worked to the 9 month deadline</td></tr>
-          <tr><td>HMRC filing</td><td>CT600, iXBRL accounts and Corporation Tax computation, worked to the 12 month deadline</td></tr>
-          <tr><td>Fixed fee</td><td>£445 per accounting period, no hidden charges and no commitment</td></tr>
-          <tr><td>Scope</td><td>Total income up to £40,000 and total assets up to £90,000</td></tr>
-          <tr><td>Qualification checks</td><td>Size thresholds and excluded categories confirmed before we apply the regime</td></tr>
-          <tr><td>Corporation Tax</td><td>Built from accounting profit, disallowable costs added back, capital allowances deducted</td></tr>
-          <tr><td>Named accountant</td><td>One chartered accountant on a direct line, first email to filing confirmation</td></tr>
-          <tr><td>Preparation time</td><td>2 to 7 days, with a 7 day turnaround available on request</td></tr>
-          <tr><td>Your approval</td><td>Tax owed explained, and everything sent to you to approve before filing</td></tr>
-          <tr><td>Payment date</td><td>Corporation Tax due 9 months and one day after the period ends, tracked alongside both filing deadlines</td></tr>
-        </tbody>
-      </table>
+    <div class="sec-center">
+      <h2>What Is Included in Our Micro Company Accounts Service?</h2>
+      <p class="lede">One fixed fee of £445 covers both filings, the Corporation Tax computation behind them, and a named chartered accountant for the whole period. Each item below states what you receive and what it covers.</p>
     </div>
 
-    <div class="note">
-      <p><b>Two items are not yet confirmed for this page.</b>
-      <span class="dataneeded">[DATA NEEDED: are annual email reminders for future filing dates part of the service?]</span>
-      <span class="dataneeded">[DATA NEEDED: are optional bundles offered covering the confirmation statement or basic HMRC correspondence, and at what price?]</span></p>
-    </div>
+    <div class="tabs">
+      <div class="tablist pills" role="tablist" aria-label="What the micro filing service includes">
+        <button role="tab" id="n1" aria-controls="np1" aria-selected="true">Companies House filing</button>
+        <button role="tab" id="n2" aria-controls="np2" aria-selected="false">HMRC filing</button>
+        <button role="tab" id="n3" aria-controls="np3" aria-selected="false">Fixed fee</button>
+        <button role="tab" id="n4" aria-controls="np4" aria-selected="false">Scope</button>
+        <button role="tab" id="n5" aria-controls="np5" aria-selected="false">Qualification checks</button>
+        <button role="tab" id="n6" aria-controls="np6" aria-selected="false">Corporation Tax</button>
+        <button role="tab" id="n7" aria-controls="np7" aria-selected="false">Named accountant</button>
+        <button role="tab" id="n8" aria-controls="np8" aria-selected="false">Preparation time</button>
+        <button role="tab" id="n9" aria-controls="np9" aria-selected="false">Your approval</button>
+        <button role="tab" id="n10" aria-controls="np10" aria-selected="false">Payment date</button>
+      </div>
 
-    <p style="margin-top:26px">Knowing what the fee includes settles the scope of the work. What each
-    body receives settles the rest.</p>
+      <div class="tabpanel" id="np1" role="tabpanel" aria-labelledby="n1" data-open="true">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Companies House filing</div>
+          <div>
+            <h3>Companies House filing</h3>
+            <p>We prepare your micro-entity balance sheet under FRS 105 and deliver it to Companies House, worked to the 9 month deadline. Your turnover and profit stay off the public record.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np2" role="tabpanel" aria-labelledby="n2">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>HMRC filing</div>
+          <div>
+            <h3>HMRC filing</h3>
+            <p>We build and deliver all three documents HMRC requires: the CT600 form, iXBRL accounts, and the Corporation Tax computation, worked to the 12 month deadline.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np3" role="tabpanel" aria-labelledby="n3">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Fixed fee</div>
+          <div>
+            <h3>Fixed fee</h3>
+            <p>You pay £445 per accounting period. No hidden charges, no commitment, and the fee does not move with the number of emails or questions you send.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np4" role="tabpanel" aria-labelledby="n4">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Scope</div>
+          <div>
+            <h3>Scope</h3>
+            <p>The fee covers companies with total income up to £40,000 and total assets up to £90,000. Outside those figures we quote against your numbers before work starts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np5" role="tabpanel" aria-labelledby="n5">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Qualification checks</div>
+          <div>
+            <h3>Qualification checks</h3>
+            <p>We confirm the size thresholds and the excluded categories before we apply the regime, because filing micro-entity accounts while excluded means filing the wrong accounts.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np6" role="tabpanel" aria-labelledby="n6">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Corporation Tax</div>
+          <div>
+            <h3>Corporation Tax</h3>
+            <p>We build the computation from accounting profit, add back disallowable costs such as depreciation and entertainment, and deduct capital allowances.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np7" role="tabpanel" aria-labelledby="n7">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Named accountant</div>
+          <div>
+            <h3>Named accountant</h3>
+            <p>You are assigned one chartered accountant on a direct line, and keep that single point of contact from the first email through to the filing confirmation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np8" role="tabpanel" aria-labelledby="n8">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Preparation time</div>
+          <div>
+            <h3>Preparation time</h3>
+            <p>Preparation normally takes 2 to 7 days once we hold your records, with a 7 day turnaround available on request.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np9" role="tabpanel" aria-labelledby="n9">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Your approval</div>
+          <div>
+            <h3>Your approval</h3>
+            <p>Your accountant explains the tax owed and sends everything to you to approve before we file.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabpanel" id="np10" role="tabpanel" aria-labelledby="n10">
+        <div class="mediasplit">
+          <div class="imgph">Image placeholder<br>Payment date</div>
+          <div>
+            <h3>Payment date</h3>
+            <p>Corporation Tax falls due 9 months and one day after your period ends, earlier than the return itself. We track that date alongside both filing deadlines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -676,11 +769,13 @@ footer.site li{margin-bottom:9px}
 <!-- ============ BENEFITS ============ -->
 <section id="why">
   <div class="wrap">
-    <h2>What Filing Micro Company Accounts Through a Chartered Firm Protects</h2>
+    <div class="sec-center">
+      <h2>What Filing Micro Company Accounts Through a Chartered Firm Protects</h2>
 
-    <p class="lede">A micro-entity filing looks small until a threshold is misread or a computation
-    misses a capital allowance. Our position improves accuracy on the parts of the obligation that
-    carry the most cost.</p>
+      <p class="lede">A micro-entity filing looks small until a threshold is misread or a computation
+      misses a capital allowance. Our position improves accuracy on the parts of the obligation that
+      carry the most cost.</p>
+    </div>
 
     <div class="bcards">
       <div class="bcard">
