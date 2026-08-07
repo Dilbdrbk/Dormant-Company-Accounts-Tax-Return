@@ -1,1183 +1,548 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dormant company accounts and company tax return | Micro Filer</title>
-<meta name="description" content="We file dormant company accounts at Companies House and the Company Tax Return at HMRC for a fixed £285. Chartered accountants registered with the ICAEW, firm number C008709968.">
-<link rel="canonical" href="https://www.microfiler.co.uk/dormant-company-accounts-tax-return">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dormant Company Accounts &amp; Tax Return | Micro Filer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --brand:#21cbdc; --brand-dark:#16394e; --brand-mid:#395860; --brand-soft:#6dadbd;
-  --brand-tint:#e8fafc; --ink:#272a2f; --body:#454545; --muted:#676767;
-  --line:#e2e6e8; --bg:#ffffff; --bg-alt:#f5f5f5; --bg-soft:#f7f7f7;
-  --warn:#b3261e; --warn-bg:#fdf1f0;
-  --h:'Montserrat',-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
-  --b:'Roboto',-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
-  --wrap:1140px; --r:10px;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--b);font-weight:400;font-size:17px;line-height:1.72;color:var(--body);background:var(--bg);-webkit-font-smoothing:antialiased}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
-h1,h2,h3,h4{font-family:var(--h);color:var(--ink);line-height:1.24;margin:0 0 .55em}
-h1{font-size:clamp(1.95rem,4.1vw,3.05rem);font-weight:800;letter-spacing:-.015em}
-h2{font-size:clamp(1.5rem,2.8vw,2.15rem);font-weight:700;letter-spacing:-.015em}
-h3{font-size:1.16rem;font-weight:700}
-h4{font-size:1rem;font-weight:700}
-p{margin:0 0 1.05em}
-a{color:#12707b;text-decoration:underline;text-underline-offset:2px}
-a:hover{color:var(--brand-dark)}
-section{padding:66px 0;border-top:1px solid var(--line)}
-section.alt{background:var(--bg-alt)}
-.lede{font-size:1.06rem;color:var(--body);max-width:74ch}
+  /* Same token system and components as the homepage — no new UI patterns introduced */
+  :root{
+    --teal:#4CB6C4;--teal-dark:#3AA0AE;--teal-tint:#EAF7F8;--light-teal:#8FD3DC;
+    --navy:#123247;--navy-deep:#0E2939;--text-dark:#173446;--text-muted:#517183;
+    --off-white:#F6FAFB;--white:#FFFFFF;--border:#E3EEF0;
+    --shadow:0 4px 18px rgba(18,50,71,.06);--shadow-hover:0 10px 28px rgba(18,50,71,.12);
+    --radius:16px;--radius-pill:999px;--max:1160px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Nunito Sans',sans-serif;color:var(--text-dark);background:var(--white);line-height:1.65;}
+  h1,h2,h3,h4{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--navy);margin:0;}
+  p{margin:0 0 1em;color:var(--text-muted);}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  section{padding:76px 0;}
+  .eyebrow{font-family:'Quicksand',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.76rem;color:var(--teal-dark);margin-bottom:12px;display:inline-block;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--navy);color:#fff;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1rem;padding:16px 36px;border-radius:var(--radius-pill);border:none;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;box-shadow:0 6px 18px rgba(18,50,71,.22);}
+  .btn:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,50,71,.3);}
+  .btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px;}
+  .btn svg{width:16px;height:16px;transition:transform .18s ease;}
+  .btn:hover svg{transform:translateX(3px);}
+  .link-arrow{color:var(--teal-dark);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:6px;}
+  .link-arrow:hover{text-decoration:underline;}
+  .icon{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 48px;}
+  .section-head h2{font-size:1.85rem;margin-bottom:10px;}
+  .section-head p{margin:0;}
 
-/* header */
-.topbar{background:var(--brand-dark);color:#fff;font-size:.86rem;text-align:center;padding:9px 16px}
-.topbar strong{color:var(--brand)}
-header.site{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
-.navrow{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 0}
-.logo img{height:44px;width:auto;display:block}
-nav.main ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
-nav.main a{font-family:var(--h);font-weight:600;font-size:.92rem;color:var(--ink);text-decoration:none}
-nav.main a:hover{color:#12707b}
-.btn{display:inline-block;font-family:var(--h);font-weight:700;font-size:.95rem;padding:14px 28px;border-radius:var(--r);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:.15s}
-.btn-primary{background:var(--brand);color:#08333a;border-color:var(--brand)}
-.btn-primary:hover{background:#19b3c3;color:#08333a}
-.btn-dark{background:var(--brand-dark);color:#fff;border-color:var(--brand-dark)}
-.btn-dark:hover{background:#0f2a3a;color:#fff}
-.btn-ghost{background:transparent;color:var(--brand-dark);border-color:var(--brand-dark)}
-.btn-ghost:hover{background:var(--brand-dark);color:#fff}
-.btn-sm{padding:10px 20px;font-size:.88rem}
+  header{padding:22px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);z-index:20;}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.35rem;}
+  .logo span.micro{color:var(--teal);}
+  .logo span.filer{color:var(--navy);}
+  nav ul{list-style:none;display:flex;gap:32px;margin:0;padding:0;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.95rem;color:var(--navy);}
+  nav a{position:relative;padding-bottom:4px;}
+  nav a:hover::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--teal);border-radius:2px;}
+  .header-cta{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.9rem;color:var(--navy);border:1.5px solid var(--navy);padding:9px 20px;border-radius:var(--radius-pill);}
+  .header-cta:hover{background:var(--navy);color:#fff;}
+  .nav-right{display:flex;align-items:center;gap:28px;}
+  .breadcrumb{font-size:.82rem;color:var(--text-muted);margin-bottom:14px;}
+  .breadcrumb a:hover{color:var(--teal-dark);text-decoration:underline;}
 
-/* hero */
-.hero{background:linear-gradient(168deg,#f4feff 0%,#ffffff 62%);padding:62px 0 58px;border-top:0}
-.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:52px;align-items:start}
-.pricetag{background:#fff;border:2px solid var(--brand);border-radius:14px;padding:26px 24px;box-shadow:0 12px 34px rgba(22,57,78,.09)}
-.pricetag .amt{font-family:var(--h);font-weight:800;font-size:3.3rem;color:var(--brand-dark);line-height:1}
-.pricetag .amt span{font-size:1rem;font-weight:600;color:var(--muted);display:block;margin-top:6px}
-.pricetag ul{list-style:none;margin:18px 0;padding:0}
-.pricetag li{padding-left:27px;position:relative;margin-bottom:9px;font-size:.96rem}
-.pricetag li::before{content:"";position:absolute;left:0;top:.52em;width:15px;height:8px;border-left:3px solid var(--brand);border-bottom:3px solid var(--brand);transform:rotate(-45deg)}
+  /* Hero — same pattern as homepage: text left, image right */
+  .hero{padding-top:52px;padding-bottom:64px;background:linear-gradient(180deg,var(--teal-tint) 0%, #fff 65%);}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;}
+  .hero h1{font-size:2.5rem;line-height:1.18;color:var(--teal-dark);margin-bottom:18px;}
+  .hero .subhead{font-size:1.06rem;color:var(--text-dark);max-width:48ch;margin-bottom:20px;}
+  .price-tag{display:inline-flex;align-items:baseline;gap:8px;background:#fff;border:1.5px solid var(--teal);border-radius:var(--radius-pill);padding:8px 20px;margin-bottom:20px;font-family:'Quicksand',sans-serif;}
+  .price-tag .amount{font-size:1.4rem;font-weight:700;color:var(--navy);}
+  .price-tag .label{font-size:.82rem;color:var(--text-muted);}
+  .stars{color:#F5A623;font-size:1.05rem;letter-spacing:2px;}
+  .trust-line{display:flex;align-items:center;gap:10px;margin-bottom:28px;font-family:'Quicksand',sans-serif;font-weight:600;color:var(--navy);font-size:.95rem;}
+  .hero-photo-frame{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow-hover);}
+  .hero-photo-placeholder{width:100%;height:100%;background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.5), transparent 45%),linear-gradient(155deg,var(--light-teal),var(--teal-dark));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:32px;font-family:'Quicksand',sans-serif;}
+  .hero-photo-placeholder .icon{width:48px;height:48px;stroke-width:1.4;margin-bottom:14px;opacity:.9;}
+  .hero-photo-placeholder strong{font-size:1rem;}
+  .hero-photo-placeholder small{display:block;font-size:.8rem;opacity:.85;margin-top:8px;font-weight:500;max-width:24ch;}
 
-/* trust bar */
-.trustbar{background:var(--brand-dark);color:#dfeef2;padding:30px 0}
-.trustbar .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:22px}
-.tsig{display:flex;gap:12px;align-items:flex-start}
-.tsig svg{flex:0 0 26px;width:26px;height:26px;stroke:var(--brand);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
-.tsig b{display:block;font-family:var(--h);font-size:.93rem;color:#fff}
-.tsig span{font-size:.83rem;color:#a9c6ce;line-height:1.5}
+  /* Form — identical pattern to homepage */
+  .form-section{background:var(--off-white);}
+  .form-panel{display:grid;grid-template-columns:1.2fr 1fr;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+  .form-panel .form-side{padding:48px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.85rem;color:var(--navy);margin-bottom:6px;}
+  .field input,.field textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:'Nunito Sans',sans-serif;font-size:.95rem;color:var(--text-dark);}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--teal);}
+  .reassurance{font-size:.85rem;color:var(--text-muted);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+  .reassurance .icon{width:16px;height:16px;color:var(--teal-dark);flex-shrink:0;}
+  .contact-side{background:var(--navy);color:#fff;padding:48px;}
+  .contact-side h3{color:#fff;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1rem;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .contact-side .icon{width:18px;height:18px;color:var(--teal);}
+  .contact-side p{color:#C9DCE3;margin-bottom:28px;font-weight:600;}
 
-/* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:24px;margin-top:34px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;position:relative;display:flex;flex-direction:column}
-.card.center{border:2px solid var(--brand);box-shadow:0 14px 38px rgba(22,57,78,.12)}
-.badge{position:absolute;top:-13px;left:24px;background:var(--brand);color:#08333a;font-family:var(--h);font-weight:800;font-size:.71rem;letter-spacing:.09em;text-transform:uppercase;padding:6px 13px;border-radius:20px}
-.card .fee{font-family:var(--h);font-weight:800;font-size:2.5rem;color:var(--brand-dark);line-height:1;margin:8px 0 4px}
-.card .feenote{font-size:.83rem;color:var(--muted);margin-bottom:16px}
-.card ul{list-style:none;margin:0 0 20px;padding:0;font-size:.94rem}
-.card li{padding-left:24px;position:relative;margin-bottom:9px}
-.card li::before{content:"";position:absolute;left:0;top:.5em;width:13px;height:7px;border-left:3px solid var(--brand-soft);border-bottom:3px solid var(--brand-soft);transform:rotate(-45deg)}
-.card .btn{margin-top:auto;text-align:center}
+  /* Included list — reuses card + icon pattern from homepage service cards */
+  .included-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;}
+  .included-list{list-style:none;padding:0;}
+  .included-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;font-size:.98rem;}
+  .included-list .check{width:24px;height:24px;border-radius:50%;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+  .included-list .check svg{width:14px;height:14px;stroke-width:3;}
+  .price-card-side{background:var(--navy);border-radius:var(--radius);padding:36px 30px;color:#fff;text-align:center;}
+  .price-card-side .amount{font-family:'Quicksand',sans-serif;font-weight:700;font-size:2.6rem;margin-bottom:4px;}
+  .price-card-side .tier-name{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--light-teal);margin-bottom:18px;font-size:.9rem;}
+  .price-card-side p{color:#C9DCE3;font-size:.88rem;margin-bottom:20px;}
 
-/* benefit cards */
-.bcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:34px}
-.bcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px}
-.bcard .ico{width:46px;height:46px;border-radius:11px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
-.bcard .ico svg{width:24px;height:24px;stroke:#12707b;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.bcard p{font-size:.95rem;margin-bottom:.9em}
-.bcard a.soft{font-family:var(--h);font-weight:700;font-size:.87rem;text-decoration:none;color:#12707b}
-.bcard a.soft:after{content:" \203A"}
+  /* Steps — identical pattern to homepage */
+  .steps{background:var(--navy);color:#fff;text-align:center;}
+  .steps .section-head h2{color:#fff;}
+  .steps .section-head p{color:#C9DCE3;}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .step-card{background:var(--navy-deep);border-radius:var(--radius);padding:38px 28px;text-align:left;border:1px solid rgba(255,255,255,.06);}
+  .step-card .circle{width:48px;height:48px;border-radius:50%;background:var(--teal);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.05rem;}
+  .step-card h3{color:#fff;font-size:1.2rem;margin-bottom:12px;}
+  .step-card p{color:#C9DCE3;font-size:.9rem;margin:0;}
 
-/* tabs */
-.tabs{margin-top:32px}
-.tablist{display:flex;flex-wrap:wrap;gap:9px;border-bottom:2px solid var(--line);padding-bottom:0;margin-bottom:0}
-.tablist button{font-family:var(--h);font-weight:700;font-size:.9rem;background:transparent;border:0;border-bottom:3px solid transparent;padding:12px 17px;color:var(--muted);cursor:pointer;margin-bottom:-2px}
-.tablist button[aria-selected="true"]{color:var(--brand-dark);border-bottom-color:var(--brand)}
-.tabpanel{display:none;padding:30px 0 0}
-.tabpanel[data-open="true"]{display:block}
-.tabpanel .split{display:grid;grid-template-columns:1.25fr .75fr;gap:38px;align-items:start}
+  /* Testimonials — identical pattern to homepage */
+  .testimonials{background:var(--off-white);}
+  .tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .tcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);}
+  .tcard .quote-icon{color:var(--teal);width:26px;height:26px;margin-bottom:14px;}
+  .tcard .stars{display:block;margin-bottom:12px;}
+  .tcard p{color:var(--text-dark);font-size:.95rem;margin-bottom:16px;}
+  .tcard span{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.83rem;color:var(--navy);}
 
-/* table */
-.tblwrap{overflow-x:auto;margin-top:26px;border:1px solid var(--line);border-radius:var(--r)}
-table{border-collapse:collapse;width:100%;min-width:520px;font-size:.95rem;background:#fff}
-caption{text-align:left;font-family:var(--h);font-weight:700;font-size:.95rem;color:var(--ink);padding:16px 18px 0}
-th,td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line)}
-thead th{background:var(--brand-dark);color:#fff;font-family:var(--h);font-size:.85rem;letter-spacing:.03em}
-tbody tr:last-child td{border-bottom:0}
-td.num{font-family:var(--h);font-weight:800;color:var(--warn);white-space:nowrap}
-td.numok{font-family:var(--h);font-weight:800;color:var(--brand-dark);white-space:nowrap}
+  /* USP / trust grid — identical pattern to homepage */
+  .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px;}
+  .trust-item .circle{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--teal-tint);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);}
+  .trust-item h4{font-size:1rem;margin-bottom:4px;}
+  .trust-item p{margin:0;font-size:.88rem;}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;margin-top:34px;counter-reset:s}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative}
-.step .n{font-family:var(--h);font-weight:800;font-size:.78rem;letter-spacing:.1em;color:#12707b;text-transform:uppercase;margin-bottom:9px}
-.step p{font-size:.95rem;margin-bottom:0}
+  /* Integrations — identical pattern to homepage */
+  .integrations{text-align:center;}
+  .logo-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+  .logo-pill{border:1.5px solid var(--border);border-radius:var(--radius-pill);padding:11px 28px;font-family:'Quicksand',sans-serif;font-weight:700;color:var(--navy);font-size:.95rem;background:#fff;}
 
-/* cta banner */
-.ctaband{background:var(--brand-dark);color:#fff;border-top:0}
-.ctaband h2{color:#fff}
-.ctaband p{color:#c6dde3;max-width:66ch}
-.ctaband .row{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
-.ctaband .note{font-size:.86rem;color:#8fb2bc;margin-top:16px}
+  /* Qualifies section — 2 rows / 3 blocks as specified */
+  .qualifies{background:var(--off-white);}
+  .qualify-row1{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:38px;box-shadow:var(--shadow);margin-bottom:22px;}
+  .qualify-row1 ol{margin:16px 0;padding-left:22px;}
+  .qualify-row1 li{margin-bottom:8px;}
+  .qualify-row1 .callout{background:var(--teal-tint);border-radius:12px;padding:16px 20px;margin:20px 0;font-weight:700;color:var(--navy);font-size:.94rem;}
+  .qualify-row1 .rare-note{border-left:3px solid var(--teal);padding-left:18px;margin-top:20px;font-size:.94rem;}
+  .qualify-row2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .info-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
+  .info-card .icon-wrap{width:44px;height:44px;border-radius:12px;background:var(--teal-tint);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);margin-bottom:16px;}
+  .info-card h3{font-size:1.15rem;margin-bottom:14px;}
+  .info-card ul{list-style:none;padding:0;}
+  .info-card li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.92rem;display:flex;justify-content:space-between;gap:12px;}
+  .info-card li:last-child{border-bottom:none;}
+  .info-card li strong{color:var(--navy);font-family:'Quicksand',sans-serif;font-weight:700;flex-shrink:0;}
+  .info-card .note{font-size:.85rem;margin-top:14px;margin-bottom:0;}
 
-/* callout */
-.callout{background:var(--warn-bg);border-left:4px solid var(--warn);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin:26px 0}
-.callout p{margin-bottom:0;font-size:.96rem}
-.callout b{color:var(--warn)}
-.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin:26px 0}
-.note p{margin-bottom:0;font-size:.96rem}
-.dataneeded{background:#fffbe6;border:1px dashed #b58900;color:#7a5c00;font-size:.85rem;padding:2px 7px;border-radius:4px;font-family:var(--b)}
+  /* FAQ — identical pattern to homepage */
+  .faq-list{max-width:760px;margin:0 auto;}
+  details{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;box-shadow:var(--shadow);}
+  summary{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  summary::-webkit-details-marker{display:none;}
+  .plus{width:24px;height:24px;border-radius:50%;background:var(--teal-tint);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;font-weight:700;transition:transform .2s ease;}
+  details[open] .plus{transform:rotate(45deg);}
+  details p{margin:16px 0 0;font-size:.94rem;}
 
-/* faq */
-details.faq{background:#fff;border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px;overflow:hidden}
-details.faq summary{font-family:var(--h);font-weight:700;font-size:1rem;color:var(--ink);padding:17px 52px 17px 20px;cursor:pointer;position:relative;list-style:none}
-details.faq summary::-webkit-details-marker{display:none}
-details.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.5rem;font-weight:400;color:var(--brand)}
-details.faq[open] summary::after{content:"\2013"}
-details.faq .ans{padding:0 20px 18px;font-size:.96rem}
-details.faq .ans p:last-child{margin-bottom:0}
+  /* Blog — identical pattern to homepage */
+  .blog{background:var(--off-white);}
+  .blog-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .blog-item{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;display:flex;justify-content:space-between;align-items:center;font-family:'Quicksand',sans-serif;font-weight:700;color:var(--navy);font-size:.98rem;box-shadow:var(--shadow);}
+  .blog-item .icon{color:var(--teal-dark);width:18px;height:18px;flex-shrink:0;}
 
-/* form */
-.formcard{background:#fff;border:2px solid var(--brand);border-radius:14px;padding:30px 28px;box-shadow:0 14px 38px rgba(22,57,78,.1)}
-.formcard label{display:block;font-family:var(--h);font-weight:600;font-size:.86rem;color:var(--ink);margin:0 0 6px}
-.formcard input,.formcard textarea{width:100%;padding:12px 14px;border:1px solid #cfd6d9;border-radius:8px;font-family:var(--b);font-size:.96rem;margin-bottom:15px;color:var(--ink)}
-.formcard textarea{min-height:96px;resize:vertical}
-.formcard .btn{width:100%;text-align:center}
-.formcard .assure{font-size:.83rem;color:var(--muted);margin:14px 0 0;text-align:center}
+  /* Other services — identical pattern to homepage service cards */
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .service-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);}
+  .service-card .service-icon{width:48px;height:48px;border-radius:12px;background:var(--teal-tint);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);margin-bottom:18px;}
+  .service-card h3{font-size:1.12rem;margin-bottom:8px;}
+  .service-card .price{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--teal-dark);margin-bottom:12px;display:block;font-size:.95rem;}
+  .service-card p{font-size:.92rem;margin-bottom:18px;}
 
-/* footer */
-footer.site{background:var(--brand-dark);color:#a9c6ce;padding:52px 0 30px;font-size:.92rem}
-footer.site h4{color:#fff;font-size:.95rem;margin-bottom:14px}
-footer.site a{color:#dfeef2}
-footer.site .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:34px}
-footer.site ul{list-style:none;margin:0;padding:0}
-footer.site li{margin-bottom:9px}
-.legal{border-top:1px solid #2d5060;margin-top:34px;padding-top:22px;font-size:.82rem;color:#84a7b1}
-.crosslink{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;margin-top:30px}
-.crosslink p{margin-bottom:0;font-size:.96rem}
-/* centred section intro, removes the ragged void beside short copy */
-.sec-center{text-align:center}
-.sec-center .lede{margin-left:auto;margin-right:auto}
-.ctaband .wrap{text-align:center}
-.ctaband p{margin-left:auto;margin-right:auto}
-.ctaband .row{justify-content:center}
+  /* Footer — identical to homepage */
+  footer{background:var(--navy-deep);color:#B9CDD6;padding-top:64px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.09);}
+  .footer-brand .logo span.filer{color:#fff;}
+  .footer-brand p{color:#93AAB6;font-size:.9rem;margin:14px 0 20px;max-width:34ch;}
+  .footer-badges{display:flex;gap:10px;flex-wrap:wrap;}
+  .footer-badge{border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-pill);padding:6px 14px;font-size:.74rem;font-family:'Quicksand',sans-serif;font-weight:600;color:#C9DCE3;}
+  footer h4{color:#fff;font-family:'Quicksand',sans-serif;font-size:.9rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:18px;}
+  footer ul{list-style:none;padding:0;}
+  footer li{margin-bottom:12px;}
+  footer a{color:#B9CDD6;font-size:.92rem;}
+  footer a:hover{color:var(--teal);}
+  .footer-contact li{display:flex;align-items:flex-start;gap:10px;color:#B9CDD6;font-size:.92rem;}
+  .footer-contact .icon{width:16px;height:16px;color:var(--teal);flex-shrink:0;margin-top:2px;}
+  .footer-bottom{padding:26px 0 34px;font-size:.8rem;color:#7D97A3;text-align:center;line-height:1.7;}
 
-/* pill tabs */
-.tablist.pills{border-bottom:0;justify-content:center;gap:10px;margin-top:28px}
-.tablist.pills button{border:1px solid var(--brand-soft);border-radius:999px;padding:10px 18px;background:#fff;color:var(--brand-dark);font-weight:600;font-size:.88rem;margin-bottom:0}
-.tablist.pills button:hover{border-color:var(--brand);background:var(--brand-tint)}
-.tablist.pills button[aria-selected="true"]{background:var(--brand);border-color:var(--brand);color:#08333a;font-weight:700}
-
-/* image placeholder beside panel copy */
-.mediasplit{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px;align-items:center;text-align:left}
-.imgph{background:var(--bg-soft);border:1px dashed var(--brand-soft);border-radius:var(--r);min-height:270px;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;color:var(--muted);font-family:var(--h);font-weight:600;font-size:.85rem;line-height:1.55}
-
-@media(max-width:900px){
-  .hero-grid,.tabpanel .split,.mediasplit{grid-template-columns:1fr;gap:32px}
-  nav.main{display:none}
-  section{padding:48px 0}
-  .imgph{min-height:200px}
-}
+  @media (max-width:900px){
+    .hero .wrap,.form-panel,.tcards,.steps-grid,.service-grid,.blog-list,.trust-grid,.included-grid,.qualify-row2,.footer-grid{grid-template-columns:1fr !important;}
+    nav ul{display:none;}
+    .hero h1{font-size:2rem;}
+    section{padding:56px 0;}
+  }
 </style>
 </head>
 <body>
 
-<div class="topbar">Dormant company accounts and company tax return filed for a fixed <strong>£285</strong></div>
-
-<header class="site">
-  <div class="wrap navrow">
-    <a class="logo" href="https://www.microfiler.co.uk/" aria-label="Micro Filer home">
-      <img src="https://lirp.cdn-website.com/e1ee2429/dms3rep/multi/opt/logo-1920w.png" alt="Micro Filer Ltd logo">
-    </a>
-    <nav class="main" aria-label="Main">
-      <ul>
-        <li><a href="https://www.microfiler.co.uk/">Home</a></li>
-        <li><a href="/dormant-company-accounts-tax-return" aria-current="page">Dormant accounts</a></li>
-        <li><a href="/micro-company-accounts-tax-return">Micro company accounts</a></li>
-        <li><a href="https://www.microfiler.co.uk/blog">Blog</a></li>
-        <li><a href="https://www.microfiler.co.uk/our-services">FAQs</a></li>
-      </ul>
-    </nav>
-    <a class="btn btn-primary btn-sm" href="#get-started">Get started</a>
+<header>
+  <div class="wrap">
+    <div class="logo"><span class="micro">MICRO</span><span class="filer">filer</span></div>
+    <div class="nav-right">
+      <nav><ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul></nav>
+      <a href="#get-started" class="header-cta">Get Started</a>
+    </div>
   </div>
 </header>
 
-<main>
-
-<!-- ============ HERO ============ -->
+<!-- 1. HERO -->
 <section class="hero">
-  <div class="wrap hero-grid">
+  <div class="wrap">
     <div>
-      <h1>Dormant company accounts and company tax return</h1>
-
-      <p class="lede">We file your dormant company accounts at Companies House and your Company Tax
-      Return at HMRC for one fixed fee of £285. These are two separate legal duties owed to two
-      different bodies, and we discharge both, so nothing is left for you to submit yourself.</p>
-
-      <p>The fee covers dormant companies and companies with minimal trading, which we treat as a
-      maximum of 10 low value transactions. Micro Filer Ltd is a chartered accountants firm
-      registered with the ICAEW under firm number C008709968. You are assigned a named accountant
-      with a direct line, not a ticket queue.</p>
-
-      <p>Two deadlines govern the work, and we track both for you. Companies House normally allows 9
-      months from the accounting reference date for a private company to deliver its accounts. HMRC
-      allows 12 months from the end of the accounting period for the Company Tax Return that covers
-      it.</p>
-
-      <p style="margin-top:26px">
-        <a class="btn btn-primary" href="#get-started">Get started for £285</a>
-        &nbsp;
-        <a class="btn btn-ghost" href="#dormancy-test">Check if your company is dormant</a>
-      </p>
+      <p class="breadcrumb"><a href="#">Home</a> / <a href="#">Services</a> / Dormant Company Accounts</p>
+      <span class="eyebrow">UK Chartered Accountants</span>
+      <h1>Dormant Company Accounts &amp; Tax Return, Filed for £285</h1>
+      <p class="subhead">ICAEW-chartered accountants file your dormant company accounts and confirmation statement with Companies House, and handle HMRC directly if a Company Tax Return is needed.</p>
+      <div class="price-tag"><span class="amount">£285</span><span class="label">fixed fee, no surprises</span></div>
+      <div class="trust-line"><span class="stars">★★★★★</span> 5.0 out of 5 — 46 reviews on Trustpilot</div>
+      <a href="#get-started" class="btn">Get Started
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </div>
+    <div class="hero-photo-frame">
+      <!-- Swap in real client photo — same 4:5 crop as homepage -->
+      <div class="hero-photo-placeholder">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>
+        <strong>Real client photo goes here</strong>
+        <small>Swap this frame for a licensed photo asset — same crop ratio as the homepage</small>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <aside class="pricetag" aria-label="Dormant filing fee">
-      <div class="amt">£285<span>per accounting period <span class="dataneeded">[DATA NEEDED: is the £285 fee inclusive or exclusive of VAT?]</span></span></div>
-      <ul>
-        <li>Dormant accounts prepared and filed at Companies House</li>
-        <li>Company tax return prepared and filed at HMRC</li>
-        <li>Named chartered accountant with a direct line</li>
-        <li>No commitment and no hidden charges</li>
-        <li>7 day turnaround available upon request</li>
+<!-- 2. FORM -->
+<section class="form-section" id="get-started">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Get started with filling the below information</h2>
+      <p>Tell us a little about your company and we'll take it from there.</p>
+    </div>
+    <div class="form-panel">
+      <div class="form-side">
+        <div class="field"><label>Name (full name and title)</label><input type="text"></div>
+        <div class="field"><label>Email</label><input type="email"></div>
+        <div class="field"><label>Telephone</label><input type="tel"></div>
+        <div class="field"><label>Company name</label><input type="text"></div>
+        <div class="field"><label>Comment</label><textarea rows="3"></textarea></div>
+        <p class="reassurance"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> Your dedicated accountant will be in touch within 24–48 hours.</p>
+        <button class="btn">Get Started
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="contact-side">
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M3 8l9 6 9-6M4 5h16v14H4z"/></svg> Contact us</h3>
+        <p>info@microfiler.co.uk</p>
+        <h3><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> International House</h3>
+        <p>64 Nile Street<br>London<br>N1 7SR</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT'S INCLUDED + PRICING -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What you get</span>
+      <h2>What's Included in Our Dormant Company Accounts Service?</h2>
+    </div>
+    <div class="included-grid">
+      <ul class="included-list">
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></span> Dormant company accounts prepared and filed with Companies House</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></span> Confirmation statement prepared and filed</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></span> HMRC notified of your company's dormant status</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></span> A Company Tax Return filed with HMRC, if a notice to deliver one has been issued</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg></span> Direct access to your dedicated accountant throughout</li>
       </ul>
-      <a class="btn btn-dark" style="display:block;text-align:center" href="#get-started">Start my return</a>
-    </aside>
-  </div>
-</section>
-
-<!-- ============ TRUST BAR ============ -->
-<div class="trustbar">
-  <div class="wrap grid">
-    <div class="tsig">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 8.2-7 9-4-.8-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-      <div><b>Chartered accountants</b><span>ICAEW firm number C008709968</span></div>
-    </div>
-    <div class="tsig">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v3M16 4v3"/></svg>
-      <div><b>Data registered</b><span>ICO reference A8784539</span></div>
-    </div>
-    <div class="tsig">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-      <div><b>2 to 7 day preparation</b><span>7 day turnaround available upon request</span></div>
-    </div>
-    <div class="tsig">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.4.8-4.7 4.3 1.3 6.3L12 17l-5.6 3 1.3-6.3L3 9.4l6.4-.8z"/></svg>
-      <div><b>Business Accountant of the Year 2023</b><span class="dataneeded">[DATA NEEDED: awarding body and award category]</span></div>
-    </div>
-    <div class="tsig">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
-      <div><b>UK based team</b><span>International House, 64 Nile Street, London</span></div>
-    </div>
-    <div class="tsig">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
-      <div><b>No hidden charges</b><span>No commitment and ongoing support included</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ============ WHAT IS INCLUDED ============ -->
-<section id="whats-included" class="alt">
-  <div class="wrap">
-    <div class="sec-center">
-      <h2>What Is Included in Our Dormant Company Accounts Service?</h2>
-      <p class="lede">One fixed fee of £285 covers both filings, the checks that sit behind them, and a named chartered accountant for the whole period. Each item below states what you receive and what it covers.</p>
-    </div>
-
-    <div class="tabs">
-      <div class="tablist pills" role="tablist" aria-label="What the dormant filing service includes">
-        <button role="tab" id="n1" aria-controls="np1" aria-selected="true">Companies House filing</button>
-        <button role="tab" id="n2" aria-controls="np2" aria-selected="false">HMRC filing</button>
-        <button role="tab" id="n3" aria-controls="np3" aria-selected="false">Fixed fee</button>
-        <button role="tab" id="n4" aria-controls="np4" aria-selected="false">Scope</button>
-        <button role="tab" id="n5" aria-controls="np5" aria-selected="false">Dormancy checks</button>
-        <button role="tab" id="n6" aria-controls="np6" aria-selected="false">Named accountant</button>
-        <button role="tab" id="n7" aria-controls="np7" aria-selected="false">Preparation time</button>
-        <button role="tab" id="n8" aria-controls="np8" aria-selected="false">Your approval</button>
-        <button role="tab" id="n9" aria-controls="np9" aria-selected="false">Ongoing support</button>
-        <button role="tab" id="n10" aria-controls="np10" aria-selected="false">Audit</button>
-      </div>
-
-      <div class="tabpanel" id="np1" role="tabpanel" aria-labelledby="n1" data-open="true">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Companies House filing</div>
-          <div>
-            <h3>Companies House filing</h3>
-            <p>We prepare your dormant accounts and deliver them to Companies House, worked to the 9 month deadline that runs from your accounting reference date.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np2" role="tabpanel" aria-labelledby="n2">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>HMRC filing</div>
-          <div>
-            <h3>HMRC filing</h3>
-            <p>We deliver your Company Tax Return to HMRC as a nil return, worked to the 12 month deadline that runs from the end of your accounting period.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np3" role="tabpanel" aria-labelledby="n3">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Fixed fee</div>
-          <div>
-            <h3>Fixed fee</h3>
-            <p>You pay £285 per accounting period. No hidden charges, no commitment, and the fee does not move with the number of emails or questions you send.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np4" role="tabpanel" aria-labelledby="n4">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Scope</div>
-          <div>
-            <h3>Scope</h3>
-            <p>The fee covers dormant companies, and companies with minimal trading, which we treat as a maximum of 10 low value transactions.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np5" role="tabpanel" aria-labelledby="n5">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Dormancy checks</div>
-          <div>
-            <h3>Dormancy checks</h3>
-            <p>We apply both dormancy tests, the Companies House test and the Corporation Tax test, before we submit. A company can pass one and fail the other.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np6" role="tabpanel" aria-labelledby="n6">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Named accountant</div>
-          <div>
-            <h3>Named accountant</h3>
-            <p>You are assigned one chartered accountant on a direct line, and keep that single point of contact from the first email through to the filing confirmation.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np7" role="tabpanel" aria-labelledby="n7">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Preparation time</div>
-          <div>
-            <h3>Preparation time</h3>
-            <p>Preparation normally takes 2 to 7 days once we hold your records, with a 7 day turnaround available on request.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np8" role="tabpanel" aria-labelledby="n8">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Your approval</div>
-          <div>
-            <h3>Your approval</h3>
-            <p>We send the accounts and the tax return to you to approve, and explain what tax is owed, before anything is filed.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np9" role="tabpanel" aria-labelledby="n9">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Ongoing support</div>
-          <div>
-            <h3>Ongoing support</h3>
-            <p>Your fee includes ongoing support on VAT, PAYE, Income Tax and advice, so a company that restarts trading keeps the same adviser.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" id="np10" role="tabpanel" aria-labelledby="n10">
-        <div class="mediasplit">
-          <div class="imgph">Image placeholder<br>Audit</div>
-          <div>
-            <h3>Audit</h3>
-            <p>No auditor's report is needed where your company qualifies as small, and we confirm that position before we rely on the exemption.</p>
-          </div>
-        </div>
+      <div class="price-card-side">
+        <div class="tier-name">Dormant</div>
+        <div class="amount">£285</div>
+        <p>Covers companies with no trading activity and up to 10 low-value transactions in the period. Grown past this? <a href="#" style="color:#fff;text-decoration:underline;">Micro</a> or <a href="#" style="color:#fff;text-decoration:underline;">Small</a> company accounts may fit better.</p>
+        <a href="#get-started" class="btn" style="background:var(--teal);color:var(--navy-deep);width:100%;">Get Started</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ WHAT GETS FILED ============ -->
-<section id="what-is-filed">
+<!-- 4. HOW WE WORK -->
+<section class="steps">
   <div class="wrap">
-    <h2>Dormant Company Accounts and the Company Tax Return Go to Two Different Places</h2>
-
-    <p class="lede">Filing dormant company accounts is not one submission. We send the accounts to
-    Companies House and the Company Tax Return to HMRC, because the two bodies enforce two separate
-    statutory duties on the same company.</p>
-
-    <p>Companies House receives the annual accounts. A dormant company that qualifies as small needs
-    no auditor's report with those accounts, whether it has been dormant since formation or since the
-    end of the previous financial year. Your company still owes a confirmation statement, and that
-    filing sits separately from the accounts.</p>
-
-    <p>HMRC receives the Company Tax Return. If your company has already filed one, or has received a
-    notice to deliver one, it still has to file online. We submit a normal CT600 carrying zero in
-    every figure, known as a nil return, which shows HMRC the company was dormant for the period.
-    There is no separate nil-return form to chase.</p>
-
-    <div class="note">
-      <p><b>The two dormancy tests are not the same test.</b> Dormant for Corporation Tax and dormant
-      for Companies House measure different things, and a company can meet one and fail the other. We
-      check both tests against your company before we submit anything.</p>
+    <div class="section-head">
+      <h2>How It Works</h2>
+      <p>Filing dormant accounts with Micro Filer takes three steps.</p>
     </div>
-
-    <div class="tblwrap">
-      <table>
-        <caption>What each body receives when we act on your dormant accounts</caption>
-        <thead>
-          <tr><th scope="col">Body</th><th scope="col">Document filed</th><th scope="col">Normal deadline</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Companies House</td><td>Annual accounts for the financial year</td><td class="numok">9 months after the accounting reference date</td></tr>
-          <tr><td>Companies House</td><td>Confirmation statement (previously the annual return)</td><td><span class="dataneeded">[DATA NEEDED: does the £285 fee include filing the confirmation statement, or is it charged separately?]</span></td></tr>
-          <tr><td>HMRC</td><td>Company Tax Return, filed as a nil return where the company is dormant</td><td class="numok">12 months after the end of the accounting period</td></tr>
-        </tbody>
-      </table>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="circle">1</div>
+        <h3>Step 1</h3>
+        <p>'Get Started' sends us your basic details. Your accountant emails you within 24–48 hours to confirm what's needed, usually just your company number and confirmation that no trading has taken place. Sharing this takes about 15 minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="circle">2</div>
+        <h3>Step 2</h3>
+        <p>We prepare your dormant accounts and confirmation statement, and notify HMRC of your dormant status. Most dormant filings are ready within 2–5 days.</p>
+      </div>
+      <div class="step-card">
+        <div class="circle">3</div>
+        <h3>Step 3</h3>
+        <p>We send your accounts to you for approval, then file directly with Companies House and, where required, HMRC. Done.</p>
+      </div>
     </div>
-
-    <p style="margin-top:26px">Knowing which documents your company owes settles the scope of the
-    work. The next question decides whether your company qualifies as dormant at all.</p>
   </div>
 </section>
 
-<!-- ============ DORMANCY TEST TABS ============ -->
-<section id="dormancy-test" class="alt">
+<!-- 5. REVIEWS -->
+<section class="testimonials">
   <div class="wrap">
-    <h2>Does Your Company Qualify to File Dormant Company Accounts?</h2>
-
-    <p class="lede">A company qualifies to file dormant company accounts when it passes the dormancy
-    test that the relevant body applies. Four routes lead to that answer, and your accountant works
-    through each one before we prepare your accounts.</p>
-
-    <div class="tabs">
-      <div class="tablist" role="tablist" aria-label="Dormancy qualification routes">
-        <button role="tab" id="t1" aria-controls="p1" aria-selected="true">Dormant for Companies House</button>
-        <button role="tab" id="t2" aria-controls="p2" aria-selected="false">Dormant for Corporation Tax</button>
-        <button role="tab" id="t3" aria-controls="p3" aria-selected="false">Never traded since formation</button>
-        <button role="tab" id="t4" aria-controls="p4" aria-selected="false">Minimal trading</button>
+    <div class="section-head">
+      <h2>What Our Clients Say</h2>
+      <div class="trust-line" style="justify-content:center;"><span class="stars">★★★★★</span> 5.0 out of 5 — 46 reviews on Trustpilot</div>
+    </div>
+    <div class="tcards">
+      <div class="tcard">
+        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h5v5a5 5 0 01-5 5v-2a3 3 0 003-3H7V7zM15 7h5v5a5 5 0 01-5 5v-2a3 3 0 003-3h-3V7z"/></svg>
+        <span class="stars">★★★★★</span>
+        <p>Filed my accounts in under 48 hours and found a way to reduce my tax bill in the process.</p>
+        <span>Verified review, Trustpilot</span>
       </div>
-
-      <div class="tabpanel" id="p1" role="tabpanel" aria-labelledby="t1" data-open="true">
-        <div class="split">
-          <div>
-            <h3>Filing Dormant Company Accounts After a Year With No Significant Transaction</h3>
-            <p>Your company is dormant for Companies House when it recorded no significant
-            transaction in the financial year. We test your records against that standard before we
-            prepare anything, so the route we file on is settled at the outset rather than questioned
-            after submission.</p>
-
-            <p>A short list of payments does not break dormancy. Shares taken by the subscribers at
-            formation, the registrar's fee for a change of name, for re-registration or for
-            registering a confirmation statement, and a penalty for failing to file accounts all
-            leave your company dormant. In practice, filing fees and incorporation shares are safe,
-            and most directors who assume they have traded have not.</p>
-
-            <p>Pass this test and we file dormant accounts rather than full trading accounts. You are
-            never asked to produce figures your company never generated, and the public record stays
-            accurate.</p>
-          </div>
-          <div class="note" style="margin-top:0">
-            <p><b>A worked example makes the test concrete.</b> A company incorporated in March 2025
-            issues 100 £1 shares to its single subscriber, pays a Companies House fee to register its
-            confirmation statement, and makes no other payment. Both items sit on the disregard list,
-            so the company remains dormant for Companies House and files dormant accounts for that
-            year.</p>
-          </div>
-        </div>
+      <div class="tcard">
+        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h5v5a5 5 0 01-5 5v-2a3 3 0 003-3H7V7zM15 7h5v5a5 5 0 01-5 5v-2a3 3 0 003-3h-3V7z"/></svg>
+        <span class="stars">★★★★★</span>
+        <p>My previous accountant left things in a mess. Micro Filer sorted everything out within about a week.</p>
+        <span>Verified review, Trustpilot</span>
       </div>
-
-      <div class="tabpanel" id="p2" role="tabpanel" aria-labelledby="t2">
-        <div class="split">
-          <div>
-            <h3>Filing a Nil Company Tax Return When the Company Is Dormant for Corporation Tax</h3>
-            <p>HMRC runs a separate test, and it turns on income rather than accounting records.
-            Your company is dormant for Corporation Tax when it has stopped trading and has no other
-            income, investments included. The same treatment reaches a new company that has not
-            started trading, an unincorporated association or club owing under £100 Corporation Tax,
-            and a flat management company.</p>
-
-            <p>Trading is defined more widely than most directors expect: buying, selling, renting
-            property, advertising, employing someone, or receiving interest. A single bank interest
-            credit fails this test even though your company sold nothing. We check this before we
-            file, because it is the point companies most often get wrong on their own.</p>
-
-            <p>A notice from HMRC overrides your own view of the position. If your company has
-            already filed a Company Tax Return, or has received a notice to deliver one, the return
-            still has to go in. We prepare it as a nil return showing HMRC the company was dormant
-            for the period.</p>
-          </div>
-          <div class="callout" style="margin-top:0">
-            <p><b>One risk deserves attention here.</b> A director who assumes dormancy without
-            telling HMRC can miss a notice to deliver and expose the company to an automatic penalty.
-            Where HMRC has confirmed the company is dormant and has issued no notice, no return falls
-            due. That confirmation is the trigger, not your own assumption that nothing happened.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tabpanel" id="p3" role="tabpanel" aria-labelledby="t3">
-        <div class="split">
-          <div>
-            <h3>Filing Dormant Company Accounts for a Company That Has Never Traded</h3>
-            <p>A company that has never traded since incorporation is the simplest case we handle.
-            It is exempt from audit for that financial year outright, which removes the largest
-            single cost from the engagement and keeps your filing inside the £285 fee.</p>
-
-            <p>Where a company became dormant later rather than at formation, the exemption still
-            reaches it, provided it qualifies as small and is not required to prepare group accounts.
-            The practical outcome is the same either way: a dormant company that qualifies as small
-            does not need an audit.</p>
-
-            <p>A small number of companies are excluded from the dormant exemption, and members keep
-            a right to require an audit regardless. Your accountant confirms that neither applies to
-            your company before we rely on the exemption, so the position we file on holds.</p>
-          </div>
-          <div class="note" style="margin-top:0">
-            <p><b>This case recurs often.</b> A director incorporates a company to reserve a trading
-            name, opens no bank account, and issues one share. That company has been dormant since
-            formation, so the audit exemption applies and we file dormant accounts with no auditor's
-            report.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tabpanel" id="p4" role="tabpanel" aria-labelledby="t4">
-        <div class="split">
-          <div>
-            <h3>Filing at Our £285 Fee With Minimal Trading Rather Than Full Dormancy</h3>
-            <p>Our £285 fee reaches two groups, not one. It covers dormant companies, and it covers
-            companies with minimal trading, which we treat as a maximum of 10 low value transactions.
-            A company that made a handful of small payments therefore keeps this fee.</p>
-
-            <p>The transaction count decides whether this fee applies, and it is the only threshold
-            that operates at this level. A company that exceeds 10 low value transactions moves to our
-            trading service, which we scope against total income and total assets instead.</p>
-
-            <p><span class="dataneeded">[DATA NEEDED: what monetary ceiling makes a transaction "low value" at the £285 tier?]</span> Your accountant confirms the correct service before any
-            work begins, so the fee we quote at the start is the fee you pay.</p>
-          </div>
-          <div class="note" style="margin-top:0">
-            <p><b>Your company traded more than that.</b> A trading company files
-            <a href="/micro-company-accounts-tax-return">micro company accounts and a company tax
-            return</a> instead, and we scope that work against your income and assets.</p>
-          </div>
-        </div>
+      <div class="tcard">
+        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h5v5a5 5 0 01-5 5v-2a3 3 0 003-3H7V7zM15 7h5v5a5 5 0 01-5 5v-2a3 3 0 003-3h-3V7z"/></svg>
+        <span class="stars">★★★★★</span>
+        <p>Quick to respond, straightforward, no confusing jargon.</p>
+        <span>Verified review, Trustpilot</span>
       </div>
     </div>
-
-    <p style="margin-top:30px">Qualification settles which accounts your company owes. The fee settles
-    what the work costs.</p>
   </div>
 </section>
 
-<!-- ============ FEE ============ -->
-<section id="fees">
+<!-- 6. WHY CHOOSE MICRO FILER -->
+<section>
   <div class="wrap">
-    <h2>What Filing Dormant Company Accounts Costs</h2>
+    <div class="section-head">
+      <span class="eyebrow">Why us</span>
+      <h2>Why Choose Micro Filer</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="circle"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/></svg></div>
+        <div><h4>Chartered accountants, not a filing bot</h4><p>Every dormant filing is checked by an ICAEW-chartered accountant before it reaches Companies House or HMRC.</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="circle"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 1.1 3 2.5-1.3 2-3 2.5-3 1.1-3 2.5 1.3 2.5 3 2.5 3-1.1 3-2.5"/></svg></div>
+        <div><h4>One fixed fee</h4><p>£285 covers accounts, confirmation statement, and HMRC notification together, no add-on charges for the parts most competitors split out.</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="circle"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M5 5l4 4M19 5l-4 4M5 19l4-4M19 19l-4-4"/></svg></div>
+        <div><h4>We catch the two-regulator trap</h4><p>Companies House and HMRC run separate dormancy tests. We file for both, so one filing never gets mistaken for the other.</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="circle"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><h4>Fast turnaround</h4><p>Most dormant filings complete within a week; a 7-day guarantee is available on request.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <p class="lede">We charge one fixed fee for the dormant accounts and the company tax return
-    together. The price does not vary with the number of documents submitted, the number of emails you
-    send, or the number of questions you ask your accountant.</p>
+<!-- 7. INTEGRATIONS -->
+<section class="integrations">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>We Integrate With Your Software (If You Have Any)</h2>
+      <p>Most dormant companies don't use accounting software, since there's nothing to record. If you do, we work with:</p>
+    </div>
+    <div class="logo-row">
+      <span class="logo-pill">Sage</span>
+      <span class="logo-pill">FreeAgent</span>
+      <span class="logo-pill">QuickBooks</span>
+      <span class="logo-pill">Xero</span>
+    </div>
+  </div>
+</section>
 
-    <div class="cards">
-      <div class="card center">
-        <span class="badge">Dormant service</span>
-        <h3>Dormant accounts and company tax return</h3>
-        <div class="fee">£285</div>
-        <div class="feenote">Dormant companies, or companies with a maximum of 10 low value transactions</div>
+<!-- 8. WHAT QUALIFIES — 2 rows, 3 blocks -->
+<section class="qualifies">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Know the basics</span>
+      <h2>What Qualifies as a Dormant Company?</h2>
+    </div>
+
+    <!-- Row 1: full width -->
+    <div class="qualify-row1">
+      <p>A company is dormant under the Companies Act 2006 if it has had <strong>no significant accounting transaction</strong> during the financial year. Three things don't count against you:</p>
+      <ol>
+        <li>Companies House filing fees</li>
+        <li>Late filing penalties</li>
+        <li>The original payment for subscriber shares at incorporation</li>
+      </ol>
+      <p>Almost everything else does count, including buying or selling anything, renting property, advertising, employing someone, or earning bank interest. HMRC and Companies House run two separate dormancy tests, and a company can meet one without meeting the other.</p>
+      <div class="callout">A dormant company with a bank account earning interest can be dormant for Companies House and not dormant for HMRC at the same time.</div>
+      <p>If HMRC decides to treat your company as dormant and confirms this in writing, no Company Tax Return is needed while that status holds. If you're notifying HMRC yourself and you've previously filed a return or received a notice to deliver one, you'll need to file one more Company Tax Return to formally close that period. <em>(Full detail in the FAQ below.)</em></p>
+      <div class="rare-note">
+        <p style="margin:0;">Companies that have carried on no trade or business at all during the period are usually excluded from the "associated companies" Corporation Tax count, so a genuinely dormant holding company doesn't normally reduce a sister company's tax-rate thresholds. The trap: this is HMRC's stricter test, not Companies House's. A company can file dormant accounts and still fail this exclusion if it had any activity at all, a single invoice, rental income, or bank interest are enough.</p>
+      </div>
+    </div>
+
+    <!-- Row 2: two columns -->
+    <div class="qualify-row2">
+      <div class="info-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Filing Deadlines</h3>
         <ul>
-          <li>Dormant accounts filed at Companies House</li>
-          <li>Company tax return filed at HMRC</li>
-          <li>Named chartered accountant assigned</li>
-          <li>Ongoing support on VAT, PAYE and Income Tax</li>
-          <li>No commitment and no hidden charges</li>
+          <li><strong>Dormant accounts</strong><span>9 months after your accounting reference date</span></li>
+          <li><strong>First accounts</strong><span>21 months after incorporation, or 3 months after the ARD, whichever is longer</span></li>
+          <li><strong>Confirmation statement</strong><span>Within 14 days of your review period ending, every year</span></li>
+          <li><strong>Restarting trading</strong><span>Notify HMRC within 3 months</span></li>
         </ul>
-        <a class="btn btn-primary" href="#get-started">Start at £285</a>
       </div>
-
-      <div class="card">
-        <h3>What the fee covers</h3>
-        <p>The fee buys the whole obligation rather than a single document. We prepare the accounts,
-        prepare the company tax return, send both to you for approval, and file them directly with
-        Companies House and HMRC.</p>
-        <p>Your designated accountant explains what tax is owed, if any, and answers your questions
-        before anything is submitted. That accountant stays reachable on a direct line for the rest of
-        the engagement.</p>
-        <a class="btn btn-ghost" href="#process">See the three steps</a>
-      </div>
-
-      <div class="card">
-        <h3>When a different service applies</h3>
-        <p>A company that exceeds 10 low value transactions has traded, so it files trading accounts
-        rather than dormant accounts. We scope that work against your total income and total assets
-        and quote it separately.</p>
-        <p>Companies outside the scope of this page still get a fixed quote before work starts. Send
-        us your figures and we price the engagement against them.</p>
-        <a class="btn btn-ghost" href="#get-started">Ask for a quote</a>
+      <div class="info-card">
+        <div class="icon-wrap"><svg class="icon" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 17a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></div>
+        <h3>Late Filing Penalties</h3>
+        <ul>
+          <li><strong>Up to 1 month late</strong><span>£150</span></li>
+          <li><strong>1–3 months late</strong><span>£375</span></li>
+          <li><strong>3–6 months late</strong><span>£750</span></li>
+          <li><strong>Over 6 months late</strong><span>£1,500</span></li>
+        </ul>
+        <p class="note">These double if you file late in two years running. A late confirmation statement works differently: no scaled fee, but Companies House can fine you up to £5,000 and strike your company off the register.</p>
       </div>
     </div>
-
-    <p style="margin-top:28px">Our fee is the predictable part. The penalties for missing a deadline
-    are not, and they apply to a dormant company as firmly as to a trading one.</p>
   </div>
 </section>
 
-<!-- ============ DEADLINES AND PENALTIES ============ -->
-<section id="deadlines" class="alt">
+<!-- 9. FAQ -->
+<section>
   <div class="wrap">
-    <h2>Late Dormant Company Accounts Expose the Company to Penalties on Two Fronts</h2>
-
-    <p class="lede">A dormant company owes no Corporation Tax in most periods, yet it still fails its
-    duties if it files late. Companies House and HMRC each run their own penalty regime, and both
-    regimes apply whether or not any tax falls due.</p>
-
-    <p>Your Companies House deadline runs from the accounting reference date, and for a private
-    company that normally means 9 months. First accounts work differently: where they cover a period
-    of more than 12 months, they must reach Companies House within 21 months of incorporation, or 3
-    months from the accounting reference date, whichever is longer. We work out which date applies to
-    your company at the start and file to it.</p>
-
-    <div class="callout">
-      <p><b>Failure to deliver accounts on time is a criminal offence.</b> The law additionally
-      imposes a penalty for late filing of accounts on the company, and the amount of that penalty
-      depends on how late the accounts arrive.</p>
+    <div class="section-head"><h2>Common Questions</h2></div>
+    <div class="faq-list">
+      <details open>
+        <summary>Do dormant companies need to file a tax return?<span class="plus">+</span></summary>
+        <p>Not always. If HMRC has decided to treat your company as dormant and confirms this in writing, you don't pay Corporation Tax or file a Company Tax Return while that status continues. If you're the one telling HMRC your company has gone dormant, and you'd previously filed a return or received a notice to deliver one, you'll need to file one final Company Tax Return to formally show HMRC the company is now dormant. After that, no further returns are needed unless HMRC sends a new notice.</p>
+      </details>
+      <details>
+        <summary>Do I still need to file with Companies House if I'm dormant for HMRC?<span class="plus">+</span></summary>
+        <p>Yes. Companies House and HMRC are separate regulators with separate requirements. Dormant company accounts and a confirmation statement go to Companies House every year, regardless of your HMRC status.</p>
+      </details>
+      <details>
+        <summary>What happens if I restart trading?<span class="plus">+</span></summary>
+        <p>Tell HMRC within 3 months of trading starting again. You don't need to tell Companies House separately; your next set of non-dormant accounts will show the change.</p>
+      </details>
+      <details>
+        <summary>Can a dormant company have a bank account?<span class="plus">+</span></summary>
+        <p>Yes, but earning interest on it can affect your dormant status for HMRC, even if Companies House still treats you as dormant.</p>
+      </details>
     </div>
-
-    <div class="tblwrap">
-      <table>
-        <caption>Companies House late filing penalties for private companies and LLPs</caption>
-        <thead>
-          <tr><th scope="col">Length of period after the filing deadline</th><th scope="col">Penalty</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Not more than 1 month</td><td class="num">£150</td></tr>
-          <tr><td>More than 1 month but not more than 3 months</td><td class="num">£375</td></tr>
-          <tr><td>More than 3 months but not more than 6 months</td><td class="num">£750</td></tr>
-          <tr><td>More than 6 months</td><td class="num">£1,500</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:.9rem;color:var(--muted);margin-top:12px">The penalty doubles where accounts
-    are filed late in 2 successive financial years beginning on or after 6 April 2008.</p>
-
-    <div class="tblwrap">
-      <table>
-        <caption>HMRC penalties for filing a Company Tax Return late</caption>
-        <thead>
-          <tr><th scope="col">Time after the deadline</th><th scope="col">Penalty</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1 day</td><td class="num">£200</td></tr>
-          <tr><td>3 months</td><td class="num">A further £200</td></tr>
-          <tr><td>6 months</td><td class="num">10% of the unpaid tax</td></tr>
-          <tr><td>12 months</td><td class="num">A further 10% of the unpaid tax</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:.9rem;color:var(--muted);margin-top:12px">A return filed late 3 times in a row
-    raises each £200 penalty to £1,000.</p>
-
-    <p style="margin-top:26px">These penalties reduce to zero when the submission arrives on time. Our
-    three-step process is built to make that the ordinary outcome.</p>
   </div>
 </section>
 
-<!-- ============ PROCESS ============ -->
-<section id="process">
+<!-- 10. FROM THE BLOG -->
+<section class="blog">
   <div class="wrap">
-    <h2>How We File Dormant Company Accounts in Three Steps</h2>
-
-    <p class="lede">We run the same three-step process for every company we act for. The process moves
-    the work off the director and onto a named chartered accountant.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="n">Step 1</div>
-        <h3>You send the basic details</h3>
-        <p>The "GET STARTED" form gives us some basic details. Your designated accountant emails you
-        to request the information they need, usually within 24 to 48 hours. You then share your data
-        through our secure online portal, which should take about 30 minutes of your time.</p>
-      </div>
-      <div class="step">
-        <div class="n">Step 2</div>
-        <h3>Your accountant prepares the filings</h3>
-        <p>Once you have provided your company records, we calculate your tax and prepare your
-        accounts. You hold your accountant's direct line for any queries during this stage. This
-        normally takes between 2 and 7 days unless you have requested a speedy turnaround.</p>
-      </div>
-      <div class="step">
-        <div class="n">Step 3</div>
-        <h3>You approve, then we file</h3>
-        <p>We send the accounts and tax return to you for your approval. We explain what tax is owed
-        and answer any questions you have. We then file directly with HMRC and Companies House, with
-        minimal fuss.</p>
-      </div>
-    </div>
-
-    <div class="note">
-      <p><b>Software is optional.</b> We integrate with a range of accounting software packages, for
-      example the providers shown on our homepage, and if you use none of them that is also fine.
-      <span class="dataneeded">[DATA NEEDED: names of the specific software packages Micro Filer integrates with, taken from the homepage logo strip]</span></p>
+    <div class="section-head"><h2>From the Blog</h2></div>
+    <div class="blog-list">
+      <a href="#" class="blog-item">What Is a Dormant Company? Definition &amp; Rules <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="#" class="blog-item">How to File Dormant Company Accounts <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="#" class="blog-item">Companies House Filing Deadlines Explained <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="#" class="blog-item">Cheapest Way to File Dormant Company Accounts <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA BAND ============ -->
-<section class="ctaband">
+<!-- 11. OTHER SERVICES -->
+<section style="background:var(--off-white)">
   <div class="wrap">
-    <h2>File Your Dormant Company Accounts Before the Deadline Passes</h2>
-    <p>We file the accounts at Companies House and the company tax return at HMRC for a fixed £285. A
-    named chartered accountant handles your company, and preparation normally takes between 2 and 7
-    days.</p>
-    <div class="row">
-      <a class="btn btn-primary" href="#get-started">Get started for £285</a>
-      <a class="btn btn-ghost" style="color:#fff;border-color:#7fb3c0" href="mailto:info@microfiler.co.uk">Email info@microfiler.co.uk</a>
+    <div class="section-head">
+      <span class="eyebrow">Other services</span>
+      <h2>Explore Our Other Services</h2>
     </div>
-    <p class="note">We offer a 7 day turnaround upon request. We apply no commitment and no hidden
-    charges.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Micro Company Accounts &amp; Tax Return</h3>
+        <span class="price">from £445</span>
+        <p>For companies under the micro-entity threshold that have started trading.</p>
+        <a href="#" class="link-arrow">View Micro Company Accounts →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 9v10"/></svg></div>
+        <h3>Small Company Accounts &amp; Tax Filing</h3>
+        <span class="price">from £695</span>
+        <p>For companies that have grown past micro-entity size but still qualify as small.</p>
+        <a href="#" class="link-arrow">View Small Company Accounts →</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ BENEFITS ============ -->
-<section id="why">
+<!-- FOOTER -->
+<footer>
   <div class="wrap">
-    <div class="sec-center">
-      <h2>What Filing Dormant Company Accounts Through a Chartered Firm Protects</h2>
-
-      <p class="lede">A dormant submission looks simple until the wrong test is applied to the wrong
-      body, or a notice arrives unread. Filing through us puts chartered oversight on exactly the parts
-      of the obligation that catch directors out.</p>
-    </div>
-
-    <div class="bcards">
-      <div class="bcard">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 8.2-7 9-4-.8-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>Chartered oversight protects the submission</h3>
-        <p>We are a chartered accountants firm registered with the ICAEW under firm number
-        C008709968. That registration stands behind the accuracy of the accounts and the tax return
-        your company signs.</p>
-        <a class="soft" href="#get-started">Start with a chartered firm</a>
-      </div>
-      <div class="bcard">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></div>
-        <h3>A direct line supports the whole period</h3>
-        <p>We assign your company a designated accountant and give you that accountant's direct line.
-        You keep one point of contact from the first email through to the filing confirmation.</p>
-        <a class="soft" href="#get-started">Get a named accountant</a>
-      </div>
-      <div class="bcard">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
-        <h3>Ongoing support improves the surrounding position</h3>
-        <p>Our fee includes ongoing support covering VAT, PAYE, Income Tax and advice. A dormant
-        company that restarts trading therefore keeps the same adviser for the payroll and VAT
-        questions that follow.</p>
-        <a class="soft" href="https://www.microfiler.co.uk/our-services">Read our FAQs</a>
-      </div>
-      <div class="bcard">
-        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg></div>
-        <h3>Deadline tracking reduces penalty exposure</h3>
-        <p>We work to the 9 month Companies House deadline and the 12 month HMRC deadline together.
-        Preparation normally takes between 2 and 7 days, which keeps a late filing penalty out of
-        reach in normal circumstances.</p>
-        <a class="soft" href="#deadlines">See the penalty bands</a>
-      </div>
-      <div class="bcard">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <h3>A fixed fee removes cost uncertainty</h3>
-        <p>We charge £285 for this service, and we apply no hidden charges and require no commitment.
-        The fee does not vary with the number of emails or questions you send.</p>
-        <a class="soft" href="#fees">See what the fee covers</a>
-      </div>
-      <div class="bcard">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
-        <h3>One firm keeps both filings consistent</h3>
-        <p>We prepare the Companies House accounts and the HMRC company tax return from the same
-        records. That single source keeps the two submissions consistent with each other.</p>
-        <a class="soft" href="#what-is-filed">See what we submit</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section id="faq" class="alt">
-  <div class="wrap">
-    <h2>Dormant Company Accounts and Company Tax Return: Common Questions</h2>
-
-    <p class="lede">Directors ask the same six clusters of questions before they file dormant company
-    accounts. Each tab below answers one cluster.</p>
-
-    <div class="tabs">
-      <div class="tablist" role="tablist" aria-label="FAQ topics">
-        <button role="tab" id="f1" aria-controls="fp1" aria-selected="true">Filing</button>
-        <button role="tab" id="f2" aria-controls="fp2" aria-selected="false">Dormant status</button>
-        <button role="tab" id="f3" aria-controls="fp3" aria-selected="false">Cost</button>
-        <button role="tab" id="f4" aria-controls="fp4" aria-selected="false">Deadlines and penalties</button>
-        <button role="tab" id="f5" aria-controls="fp5" aria-selected="false">Corporation Tax</button>
-        <button role="tab" id="f6" aria-controls="fp6" aria-selected="false">Other services</button>
-      </div>
-
-      <div class="tabpanel" id="fp1" role="tabpanel" aria-labelledby="f1" data-open="true">
-        <details class="faq" open><summary>Who files the dormant company accounts, you or the director?</summary>
-          <div class="ans"><p>We file them. We send the accounts and tax return to you for your
-          approval, explain what tax is owed, answer your questions, and then file directly with HMRC
-          and Companies House.</p></div></details>
-        <details class="faq"><summary>Does filing dormant accounts also cover the confirmation statement?</summary>
-          <div class="ans"><p>The confirmation statement is a separate Companies House filing. Even a
-          dormant company must submit a confirmation statement, previously called the annual return,
-          as well as annual accounts. <span class="dataneeded">[DATA NEEDED: confirm whether the £285 fee includes filing the confirmation statement]</span></p></div></details>
-        <details class="faq"><summary>Do dormant accounts need an auditor's report?</summary>
-          <div class="ans"><p>Usually no. A dormant company that qualifies as small does not need an
-          audit, and we confirm your company meets those conditions before we rely on the exemption.
-          Members do keep a right to require an audit, which we check for as well.</p></div></details>
-        <details class="faq"><summary>What if the company used accounting software, or used none at all?</summary>
-          <div class="ans"><p>Either position works. We integrate with a range of accounting software
-          packages, and if you use none of them that is also fine.</p></div></details>
-      </div>
-
-      <div class="tabpanel" id="fp2" role="tabpanel" aria-labelledby="f2">
-        <details class="faq" open><summary>What does dormant actually mean in law?</summary>
-          <div class="ans"><p>A company is dormant during any period in which it records no
-          significant accounting transaction, meaning a transaction the company is required to enter
-          in its accounting records. We apply that standard to your records rather than to a rule of
-          thumb.</p></div></details>
-        <details class="faq"><summary>Which payments do not break dormancy?</summary>
-          <div class="ans"><p>Three in everyday terms: filing fees paid to Companies House, penalties
-          for late filing of accounts, and money paid for shares when the company was incorporated.
-          The registrar's fees for a change of name, for re-registration, and for registering a
-          confirmation statement are disregarded too.</p></div></details>
-        <details class="faq"><summary>Can a company be dormant for one body and not the other?</summary>
-          <div class="ans"><p>Yes. Dormant for Corporation Tax and dormant for Companies House measure
-          different things, and a company can meet one and fail the other. We check both tests
-          separately rather than assuming.</p></div></details>
-        <details class="faq"><summary>Does bank interest stop a company being dormant for Corporation Tax?</summary>
-          <div class="ans"><p>Yes. Trading for this test includes buying, selling, renting property,
-          advertising, employing someone or getting interest. Interest received is therefore income,
-          and it breaks Corporation Tax dormancy.</p></div></details>
-      </div>
-
-      <div class="tabpanel" id="fp3" role="tabpanel" aria-labelledby="f3">
-        <details class="faq" open><summary>How much does filing dormant company accounts cost?</summary>
-          <div class="ans"><p>We charge a fixed £285. That fee covers the dormant accounts and the
-          company tax return for dormant companies, and for companies with minimal trading of a
-          maximum of 10 low value transactions.</p></div></details>
-        <details class="faq"><summary>What does the £285 include?</summary>
-          <div class="ans"><p>It includes preparing and filing the accounts at Companies House,
-          preparing and filing the company tax return at HMRC, a named chartered accountant with a
-          direct line, and ongoing support covering VAT, PAYE, Income Tax and advice.</p></div></details>
-        <details class="faq"><summary>What happens if my company traded during the year?</summary>
-          <div class="ans"><p>A company that exceeds 10 low value transactions files trading accounts
-          instead of dormant accounts. We scope that work against your total income and total assets,
-          and we quote it before any work begins.</p></div></details>
-        <details class="faq"><summary>Are there additional charges on top of the fee?</summary>
-          <div class="ans"><p>We apply no hidden charges and require no commitment, and ongoing
-          support covering VAT, PAYE, Income Tax and advice is included. <span class="dataneeded">[DATA NEEDED: VAT treatment of the fee, and whether Companies House or HMRC disbursements are charged separately]</span></p></div></details>
-      </div>
-
-      <div class="tabpanel" id="fp4" role="tabpanel" aria-labelledby="f4">
-        <details class="faq" open><summary>When must dormant accounts reach Companies House?</summary>
-          <div class="ans"><p>Companies House normally allows 9 months from the accounting reference
-          date for a private company. First accounts covering more than 12 months must arrive within
-          21 months of the date of incorporation, or 3 months from the accounting reference date,
-          whichever is longer.</p></div></details>
-        <details class="faq"><summary>What does Companies House charge for late accounts?</summary>
-          <div class="ans"><p>Four bands apply to private companies and LLPs: £150 for not more than 1
-          month, £375 for more than 1 month but not more than 3 months, £750 for more than 3 months
-          but not more than 6 months, and £1,500 for more than 6 months. The penalty doubles where
-          accounts are filed late in 2 successive financial years.</p></div></details>
-        <details class="faq"><summary>What does HMRC charge for a late company tax return?</summary>
-          <div class="ans"><p>HMRC charges £200 at 1 day late, a further £200 at 3 months, 10% of the
-          unpaid tax at 6 months, and a further 10% at 12 months. A return filed late 3 times in a row raises each
-          £200 penalty to £1,000.</p></div></details>
-        <details class="faq"><summary>Is late filing more than a financial matter?</summary>
-          <div class="ans"><p>Yes. Failure to deliver accounts on time is a criminal offence, and the
-          law separately imposes a late filing penalty on the company.</p></div></details>
-      </div>
-
-      <div class="tabpanel" id="fp5" role="tabpanel" aria-labelledby="f5">
-        <details class="faq" open><summary>Does a dormant company still submit a Company Tax Return?</summary>
-          <div class="ans"><p>It depends on the notice. A company that has already filed a Company Tax
-          Return, or that has received a notice to deliver one, must still file online, and that
-          return shows HMRC the company was dormant for the period.</p></div></details>
-        <details class="faq"><summary>What is a nil return?</summary>
-          <div class="ans"><p>A nil return is a normal CT600 carrying zero in every figure. No
-          separate nil-return form exists, so the dormant submission uses the ordinary
-          return.</p></div></details>
-        <details class="faq"><summary>Can a director still file a CT600 through HMRC's free service?</summary>
-          <div class="ans"><p>No. HMRC closed its free Company Accounts and Tax Online filing service
-          on 31 March 2026. From 1 April 2026 you need commercial software, or an accountant who files
-          on your behalf.</p></div></details>
-        <details class="faq"><summary>How does a director tell HMRC the company is dormant?</summary>
-          <div class="ans"><p>A director notifies HMRC through the company's business tax account. A company that has stopped
-          trading and has no other income can notify HMRC that it is dormant for Corporation
-          Tax.</p></div></details>
-      </div>
-
-      <div class="tabpanel" id="fp6" role="tabpanel" aria-labelledby="f6">
-        <details class="faq" open><summary>What happens when the company starts trading again?</summary>
-          <div class="ans"><p>The company moves onto our trading service. We scope that work against
-          your total income and total assets, and the
-          <a href="/micro-company-accounts-tax-return">micro company accounts and tax return page</a>
-          explains what a trading filing involves.</p></div></details>
-        <details class="faq"><summary>Do you help with VAT and PAYE as well?</summary>
-          <div class="ans"><p>Yes. Our fee includes ongoing support covering VAT, PAYE, Income Tax and
-          advice, so the same adviser handles the questions that follow the filing.</p></div></details>
-        <details class="faq"><summary>Where can a director read your own guidance?</summary>
-          <div class="ans"><p>We publish guides on our <a href="https://www.microfiler.co.uk/blog">blog</a>,
-          including guides on filing a CT600 and on micro-entity accounts. Our
-          <a href="https://www.microfiler.co.uk/our-services">FAQs page</a> covers micro-entity status,
-          filing deadlines and Corporation Tax.</p></div></details>
-        <details class="faq"><summary>Are you registered for data protection?</summary>
-          <div class="ans"><p>Yes. Micro Filer Ltd is registered with the ICO under reference number
-          A8784539, and with the ICAEW under firm number C008709968.</p></div></details>
-      </div>
-    </div>
-
-    <div class="crosslink">
-      <p><b>Your company trades rather than sitting dormant.</b> We file
-      <a href="/micro-company-accounts-tax-return">micro company accounts and a company tax return</a>
-      for companies that have traded during the year, scoped against total income and total
-      assets.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FORM ============ -->
-<section id="get-started">
-  <div class="wrap hero-grid">
-    <div>
-      <h2>Start Filing Your Dormant Company Accounts and Company Tax Return</h2>
-      <p class="lede">We need a few basic details to begin. Your designated accountant emails you to
-      request the information they need, usually within 24 to 48 hours.</p>
-      <p>You then share your company records through our secure online portal, which should take about
-      30 minutes of your time. Preparation normally takes between 2 and 7 days, and we offer a 7 day
-      turnaround upon request.</p>
-      <p><b>Micro Filer Ltd</b><br>
-      International House, 64 Nile Street, London N1 7SR<br>
-      <a href="mailto:info@microfiler.co.uk">info@microfiler.co.uk</a></p>
-      <p style="font-size:.9rem;color:var(--muted)">After you submit the form, please check your junk
-      mail if you do not receive an email from one of our accountants.</p>
-    </div>
-
-    <div class="formcard">
-      <h3 style="margin-bottom:1em">Get started for £285</h3>
-      <form action="https://www.microfiler.co.uk/#Contactus" method="post">
-        <label for="n">Name (full name and title)</label>
-        <input id="n" name="name" type="text" autocomplete="name" required>
-        <label for="e">Email</label>
-        <input id="e" name="email" type="email" autocomplete="email" required>
-        <label for="t">Telephone</label>
-        <input id="t" name="telephone" type="tel" autocomplete="tel">
-        <label for="c">Company name</label>
-        <input id="c" name="company" type="text" autocomplete="organization">
-        <label for="m">Comment</label>
-        <textarea id="m" name="comment" placeholder="Tell us your accounting reference date and whether the company has traded."></textarea>
-        <button class="btn btn-primary" type="submit">Send my details</button>
-        <p class="assure">We require no commitment and apply no hidden charges. We are a chartered
-        accountants firm registered with the ICAEW.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="grid">
-      <div>
-        <h4>Micro Filer Ltd</h4>
-        <p style="margin:0">International House<br>64 Nile Street<br>London N1 7SR<br>
-        <a href="mailto:info@microfiler.co.uk">info@microfiler.co.uk</a></p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="micro">MICRO</span><span class="filer">filer</span></div>
+        <p>ICAEW-chartered accountants filing micro, small, and dormant company accounts across the UK for a fixed fee.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">ICAEW Registered</span>
+          <span class="footer-badge">ICO Registered</span>
+        </div>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="/dormant-company-accounts-tax-return">Dormant company accounts and tax return</a></li>
-          <li><a href="/micro-company-accounts-tax-return">Micro company accounts and tax return</a></li>
+          <li><a href="#">Dormant Company Accounts</a></li>
+          <li><a href="#">Micro Company Accounts</a></li>
+          <li><a href="#">Small Company Accounts</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="https://www.microfiler.co.uk/">Home</a></li>
-          <li><a href="https://www.microfiler.co.uk/blog">Blog</a></li>
-          <li><a href="https://www.microfiler.co.uk/our-services">FAQs</a></li>
-          <li><a href="https://www.microfiler.co.uk/#Contactus">Contact us</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Compliance</h4>
-        <ul>
-          <li>Filings prepared to current UK statutory requirements</li>
-          <li>Both dormancy tests checked before submission</li>
-          <li>Chartered oversight on every filing</li>
-          <li>Companies House and HMRC handled in full</li>
+        <h4>Get in touch</h4>
+        <ul class="footer-contact">
+          <li><svg class="icon" viewBox="0 0 24 24"><path d="M3 8l9 6 9-6M4 5h16v14H4z"/></svg> info@microfiler.co.uk</li>
+          <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> International House, 64 Nile Street, London, N1 7SR</li>
         </ul>
       </div>
     </div>
-    <p class="legal">Micro Filer Ltd is a limited company registered in England and Wales registered
-    number 12273247. Registered with the ICAEW under firm number C008709968. Registered with the ICO
-    under reference number A8784539. We work to current UK filing requirements in full, and we keep
-    our procedures aligned with them as they change. This page explains our service and does not
-    replace advice on your company's own circumstances.</p>
+    <div class="footer-bottom">
+      Micro Filer Ltd is a limited company registered in England and Wales, registered number 12273247. Registered with the ICAEW under firm number C008709968. Registered with the ICO under reference A8784539.
+      <br>© 2026 Micro Filer Ltd. All rights reserved.
+    </div>
   </div>
 </footer>
-
-<script>
-document.querySelectorAll('.tablist').forEach(function(list){
-  var tabs = list.querySelectorAll('[role="tab"]');
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      tabs.forEach(function(t){
-        t.setAttribute('aria-selected','false');
-        document.getElementById(t.getAttribute('aria-controls')).setAttribute('data-open','false');
-      });
-      tab.setAttribute('aria-selected','true');
-      document.getElementById(tab.getAttribute('aria-controls')).setAttribute('data-open','true');
-    });
-  });
-});
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return#webpage",
-      "url": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return",
-      "name": "Dormant company accounts and company tax return",
-      "description": "We file dormant company accounts at Companies House and the Company Tax Return at HMRC for a fixed £285.",
-      "inLanguage": "en-GB",
-      "about": { "@id": "https://www.microfiler.co.uk/#organization" },
-      "mainEntity": { "@id": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return#service" },
-      "hasPart": { "@id": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return#faq" }
-    },
-    {
-      "@type": ["Organization","AccountingService"],
-      "@id": "https://www.microfiler.co.uk/#organization",
-      "name": "Micro Filer Ltd",
-      "legalName": "Micro Filer Ltd",
-      "url": "https://www.microfiler.co.uk/",
-      "logo": "https://lirp.cdn-website.com/e1ee2429/dms3rep/multi/opt/logo-1920w.png",
-      "email": "info@microfiler.co.uk",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "International House, 64 Nile Street",
-        "addressLocality": "London",
-        "postalCode": "N1 7SR",
-        "addressCountry": "GB"
-      },
-      "areaServed": { "@type": "Country", "name": "United Kingdom" },
-      "identifier": [
-        { "@type": "PropertyValue", "name": "Companies House registered number", "value": "12273247" },
-        { "@type": "PropertyValue", "name": "ICAEW firm number", "value": "C008709968" },
-        { "@type": "PropertyValue", "name": "ICO registration reference", "value": "A8784539" }
-      ],
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "Professional registration",
-        "recognizedBy": { "@type": "Organization", "name": "Institute of Chartered Accountants in England and Wales" }
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return#service",
-      "name": "Dormant company accounts and company tax return filing",
-      "serviceType": "Statutory accounts and Corporation Tax return filing for dormant UK limited companies",
-      "provider": { "@id": "https://www.microfiler.co.uk/#organization" },
-      "areaServed": { "@type": "Country", "name": "United Kingdom" },
-      "description": "Preparation and filing of dormant company accounts at Companies House and the Company Tax Return at HMRC, for dormant companies and companies with a maximum of 10 low value transactions.",
-      "offers": {
-        "@type": "Offer",
-        "price": "285",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return",
-        "eligibleCustomerType": "Dormant UK private limited companies, or companies with a maximum of 10 low value transactions"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.microfiler.co.uk/dormant-company-accounts-tax-return#faq",
-      "mainEntity": [
-              {
-                      "@type": "Question",
-                      "name": "How much does filing dormant company accounts cost?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "We charge a fixed £285. That fee covers the dormant accounts and the company tax return for dormant companies, and for companies with minimal trading of a maximum of 10 low value transactions."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "What does the £285 include?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "It includes preparing and filing the accounts at Companies House, preparing and filing the company tax return at HMRC, a named chartered accountant with a direct line, and ongoing support covering VAT, PAYE, Income Tax and advice."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "What does dormant actually mean in law?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "A company is dormant during any period in which it records no significant accounting transaction, meaning a transaction the company is required to enter in its accounting records. We apply that standard to your records rather than to a rule of thumb."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "Which payments do not break dormancy?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "Three in everyday terms: filing fees paid to Companies House, penalties for late filing of accounts, and money paid for shares when the company was incorporated. Section 1169 adds the registrar's fees for a change of name, for re-registration, and for registering a confirmation statement."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "Can a company be dormant for one body and not the other?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "Yes. Dormant for Corporation Tax and dormant for Companies House measure different things, and a company can meet one and fail the other. We check both tests separately rather than assuming."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "Does a dormant company still submit a Company Tax Return?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "It depends on the notice. A company that has already filed a Company Tax Return, or that has received a notice to deliver one, must still file online, and that return shows HMRC the company was dormant for the period."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "When must dormant accounts reach Companies House?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "Companies House normally allows 9 months from the accounting reference date for a private company. First accounts covering more than 12 months must arrive within 21 months of the date of incorporation, or 3 months from the accounting reference date, whichever is longer."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "What does Companies House charge for late accounts?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "Four bands apply to private companies and LLPs: £150 for not more than 1 month, £375 for more than 1 month but not more than 3 months, £750 for more than 3 months but not more than 6 months, and £1,500 for more than 6 months. The penalty doubles where accounts are filed late in 2 successive financial years."
-                      }
-              },
-              {
-                      "@type": "Question",
-                      "name": "Do dormant accounts need an auditor's report?",
-                      "acceptedAnswer": {
-                              "@type": "Answer",
-                              "text": "Usually no. A dormant company that qualifies as small does not need an audit, and we confirm your company meets those conditions before we rely on the exemption. Members do keep a right to require an audit, which we check for as well."
-                      }
-              }
-      ]
-    }
-  ]
-}
-</script>
 
 </body>
 </html>
